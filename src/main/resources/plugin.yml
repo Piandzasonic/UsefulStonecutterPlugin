@@ -1,0 +1,7 @@
+name: UsefulStonecutterPlugin
+version: '${project.version}'
+main: me.alzen.usefulstonecutterplugin.UsefulStonecutterPlugin
+api-version: '1.20'
+authors: [Alzen]
+description: Plugin that allows planks in the stonecutter
+website: https://www.spigotmc.org/resources/authors/alzen.1861423/
