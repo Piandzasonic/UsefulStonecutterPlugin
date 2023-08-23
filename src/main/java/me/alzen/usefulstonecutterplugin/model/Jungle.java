@@ -18,7 +18,6 @@ public class Jungle extends InputPlank{
         keys.add(new NamespacedKey(plugin, keyPrefix + "trapdoor"));
         keys.add(new NamespacedKey(plugin, keyPrefix + "pressure_plate"));
         keys.add(new NamespacedKey(plugin, keyPrefix + "sign"));
-        keys.add(new NamespacedKey(plugin, keyPrefix + "bowl"));
 
         inputPlank = new ItemStack(Material.JUNGLE_PLANKS);
 
@@ -30,7 +29,6 @@ public class Jungle extends InputPlank{
         outputBlocks.add(new ItemStack(Material.JUNGLE_TRAPDOOR, 3));
         outputBlocks.add(new ItemStack(Material.JUNGLE_PRESSURE_PLATE, 4));
         outputBlocks.add(new ItemStack(Material.JUNGLE_SIGN, 2));
-        outputBlocks.add(new ItemStack(Material.BOWL, 3));
 
         if(plugin.getServer().getBukkitVersion().contains("1.20")){
             keys.add(new NamespacedKey(plugin, keyPrefix + "hanging_sign"));

@@ -2,7 +2,16 @@ package me.alzen.usefulstonecutterplugin;
 
 import me.alzen.usefulstonecutterplugin.bstats.Metrics;
 import me.alzen.usefulstonecutterplugin.model.*;
+import org.bukkit.Bukkit;
+import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.StonecuttingRecipe;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.checkerframework.checker.units.qual.C;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public final class UsefulStonecutterPlugin extends JavaPlugin {
 
@@ -13,6 +22,16 @@ public final class UsefulStonecutterPlugin extends JavaPlugin {
         // Plugin startup logic
         int pluginId = 19619;
         Metrics metrics = new Metrics(this, pluginId);
+
+        List<Material> planks = new ArrayList<>();
+        planks.add(Material.OAK_PLANKS);
+        planks.add(Material.SPRUCE_PLANKS);
+        planks.add(Material.BIRCH_PLANKS);
+        planks.add(Material.JUNGLE_PLANKS);
+        planks.add(Material.ACACIA_PLANKS);
+        planks.add(Material.DARK_OAK_PLANKS);
+        planks.add(Material.CRIMSON_PLANKS);
+        planks.add(Material.WARPED_PLANKS);
 
         Acacia acacia = new Acacia(this);
         acacia.registerRecipe();
@@ -32,17 +51,37 @@ public final class UsefulStonecutterPlugin extends JavaPlugin {
         DarkOak darkOak = new DarkOak(this);
         darkOak.registerRecipe();
 
+        Crimson crimson = new Crimson(this);
+        crimson.registerRecipe();
+
+        Warped warped = new Warped(this);
+        warped.registerRecipe();
+
         if(getServer().getBukkitVersion().contains("1.19")){
             Mangrove mangrove = new Mangrove(this);
             mangrove.registerRecipe();
+            planks.add(Material.MANGROVE_PLANKS);
         }
 
         if(getServer().getBukkitVersion().contains("1.20")){
             Mangrove mangrove = new Mangrove(this);
             mangrove.registerRecipe();
+            planks.add(Material.MANGROVE_PLANKS);
 
             Cherry cherry = new Cherry(this);
             cherry.registerRecipe();
+            planks.add(Material.CHERRY_PLANKS);
+        }
+
+        ItemStack bowlOutput = new ItemStack(Material.BOWL);
+
+        for (Material plank : planks) {
+            NamespacedKey key = new NamespacedKey(this, plank.name().toLowerCase() + "_to_bowl");
+
+            StonecuttingRecipe recipe = new StonecuttingRecipe(key, bowlOutput, plank);
+            recipe.setGroup("planks_to_bowl");
+
+            Bukkit.addRecipe(recipe);
         }
 
 

@@ -18,7 +18,6 @@ public class Cherry extends InputPlank{
         keys.add(new NamespacedKey(plugin, keyPrefix + "trapdoor"));
         keys.add(new NamespacedKey(plugin, keyPrefix + "pressure_plate"));
         keys.add(new NamespacedKey(plugin, keyPrefix + "sign"));
-        keys.add(new NamespacedKey(plugin, keyPrefix + "bowl"));
 
         inputPlank = new ItemStack(Material.CHERRY_PLANKS);
 
@@ -30,7 +29,6 @@ public class Cherry extends InputPlank{
         outputBlocks.add(new ItemStack(Material.CHERRY_TRAPDOOR, 3));
         outputBlocks.add(new ItemStack(Material.CHERRY_PRESSURE_PLATE, 4));
         outputBlocks.add(new ItemStack(Material.CHERRY_SIGN, 2));
-        outputBlocks.add(new ItemStack(Material.BOWL, 3));
 
         keys.add(new NamespacedKey(plugin, keyPrefix + "hanging_sign"));
         outputBlocks.add(new ItemStack(Material.CHERRY_HANGING_SIGN, 2));
