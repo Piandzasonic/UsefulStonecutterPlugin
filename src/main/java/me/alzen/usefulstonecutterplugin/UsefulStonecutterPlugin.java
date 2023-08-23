@@ -1,5 +1,6 @@
 package me.alzen.usefulstonecutterplugin;
 
+import me.alzen.usefulstonecutterplugin.bstats.Metrics;
 import me.alzen.usefulstonecutterplugin.model.*;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -10,6 +11,8 @@ public final class UsefulStonecutterPlugin extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
+        int pluginId = 19619;
+        Metrics metrics = new Metrics(this, pluginId);
 
         Acacia acacia = new Acacia(this);
         acacia.registerRecipe();
@@ -44,7 +47,7 @@ public final class UsefulStonecutterPlugin extends JavaPlugin {
 
 
         getLogger().info(line);
-        getLogger().info("Woodcutter Plugin Enabled!");
+        getLogger().info("Useful Stonecutter Plugin Enabled!");
         getLogger().info(line);
     }
 
@@ -53,7 +56,7 @@ public final class UsefulStonecutterPlugin extends JavaPlugin {
         // Plugin shutdown logic
 
         getLogger().info(line);
-        getLogger().info("Woodcutter Plugin Disabled!");
+        getLogger().info("Useful Stonecutter Plugin Disabled!");
         getLogger().info(line);
     }
 }
