@@ -1,0 +1,4 @@
+# 1 enabled , 0 disabled. Enabling this will set this as the server's resource pack.
+# The resource apck only changes the UI text from Stonecutter to Cutting Saw.
+EnableResourcePack: 1
+ResourcePackURL: https://www.dropbox.com/scl/fo/7z2gkqc0fwtuxwbb84pai/h?rlkey=9opzcvtbq5oey3jmse3b5k0pc&dl=1

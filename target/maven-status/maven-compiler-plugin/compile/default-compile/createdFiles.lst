@@ -1,4 +1,5 @@
 me\alzen\usefulstonecutterplugin\bstats\Metrics$AdvancedPie.class
+me\alzen\usefulstonecutterplugin\eventlistener\PlayerJoiningListener.class
 me\alzen\usefulstonecutterplugin\model\Cherry.class
 me\alzen\usefulstonecutterplugin\bstats\Metrics$SimpleBarChart.class
 me\alzen\usefulstonecutterplugin\bstats\Metrics$SingleLineChart.class

@@ -1,10 +1,12 @@
 package me.alzen.usefulstonecutterplugin;
 
 import me.alzen.usefulstonecutterplugin.bstats.Metrics;
+import me.alzen.usefulstonecutterplugin.eventlistener.PlayerJoiningListener;
 import me.alzen.usefulstonecutterplugin.model.*;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
+import org.bukkit.event.HandlerList;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.StonecuttingRecipe;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -22,6 +24,9 @@ public final class UsefulStonecutterPlugin extends JavaPlugin {
         // Plugin startup logic
         int pluginId = 19619;
         Metrics metrics = new Metrics(this, pluginId);
+
+        getConfig().options().copyDefaults();
+        saveDefaultConfig();
 
         List<Material> planks = new ArrayList<>();
         planks.add(Material.OAK_PLANKS);
@@ -84,6 +89,7 @@ public final class UsefulStonecutterPlugin extends JavaPlugin {
             Bukkit.addRecipe(recipe);
         }
 
+        getServer().getPluginManager().registerEvents(new PlayerJoiningListener(this), this);
 
         getLogger().info(line);
         getLogger().info("Useful Stonecutter Plugin Enabled!");
@@ -93,6 +99,8 @@ public final class UsefulStonecutterPlugin extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+
+        HandlerList.unregisterAll(this);
 
         getLogger().info(line);
         getLogger().info("Useful Stonecutter Plugin Disabled!");
